@@ -1,0 +1,1329 @@
+MASTER PROMPT
+
+AL MUINUL QURAN ONLINE ACADEMY
+
+International Standard Website Development Project
+
+---
+
+1. YOUR ROLE AND RESPONSIBILITIES
+
+Act as a Senior Full-Stack Web Developer, UI/UX Designer, Software Architect, SEO Specialist, AEO Specialist, GEO Specialist, and Conversion-Focused Digital Experience Consultant with the mindset and professional standards of someone with 10+ years of industry experience.
+
+Your task is to design and develop a complete, modern, premium, professional, responsive, multilingual website for:
+
+Al Muinul Quran Online Academy
+
+This is a real educational institution. Treat all institutional information, branding assets, teacher information, and design references provided by the owner as authoritative.
+
+Do not build a generic template website.
+
+Build a complete, trustworthy, elegant, conversion-focused online Quran academy website that reflects the academy's educational purpose, values, teaching system, and international aspirations.
+
+Your responsibilities include:
+
+- Analyze all supplied project assets.
+- Follow the approved UI/UX reference designs.
+- Develop a consistent design system.
+- Create all seven required website pages.
+- Implement working navigation and language switching.
+- Develop responsive layouts for mobile, tablet, and desktop.
+- Implement real admission and contact workflows.
+- Prepare the website for GitHub deployment.
+- Implement SEO, AEO, and GEO best practices.
+- Test functionality, accessibility, security, and performance.
+- Provide clear instructions for publishing and maintaining the website.
+
+Important: Do not attempt to complete everything in one uncontrolled generation. Work in clearly defined phases, inspect the result, and validate each phase before continuing.
+
+---
+
+2. ACADEMY INFORMATION
+
+Use the following verified information throughout the website.
+
+Academy Name:
+Al Muinul Quran Online Academy
+
+Tagline:
+Learn the Quran. Illuminate Your Life.
+
+Facebook Page:
+https://www.facebook.com/AlMoinulQuran?mibextid=ZbWKwL
+
+Phone / WhatsApp:
++880 1626-278303
+
+Email:
+almuinulquranacademy@gmail.com
+
+Location:
+Bangladesh
+
+Institution Type:
+Online Quran Learning Academy
+
+Facebook Category:
+Education
+
+Do not invent any additional address, branch, office location, registration number, accreditation, or institutional history.
+
+The academy serves online students, so clearly communicate that students can learn remotely.
+
+---
+
+3. PROJECT OBJECTIVES
+
+Create a website that achieves the following objectives:
+
+1. Establish a professional and trustworthy online identity.
+2. Introduce the academy to local and international students.
+3. Explain the available Quran and Islamic education courses.
+4. Present real male and female teachers professionally.
+5. Explain the one-to-one online teaching system.
+6. Encourage new students to request free trial classes.
+7. Make admission and contact processes simple.
+8. Build confidence among parents and adult learners.
+9. Provide information in Bengali and English.
+10. Generate genuine student inquiries and enrollment opportunities.
+
+The website should communicate professionalism, transparency, educational quality, accessibility, and trust.
+
+Never use aggressive, misleading, or manipulative marketing.
+
+---
+
+4. BRAND IDENTITY AND DESIGN SYSTEM
+
+Design Direction
+
+Combine three design approaches:
+
+- Premium Islamic Design
+- Modern International Education Platform
+- Elegant Luxury Branding
+
+The final design should feel:
+
+- Professional
+- Elegant
+- Trustworthy
+- Modern
+- Minimal
+- Islamic
+- International
+- User-friendly
+
+Avoid excessive decoration, cluttered sections, unnecessary animations, and outdated website layouts.
+
+Official Color Palette
+
+Primary Deep Islamic Green: #123D32
+
+Secondary Elegant Gold: #D6B66C
+
+Black: #171717
+
+White: #FFFFFF
+
+Soft Gray: #F3F5F2
+
+Use deep green for primary sections, headings, buttons, and important branding elements.
+
+Use gold for accents, icons, borders, highlights, and important CTA elements.
+
+Use white and soft gray to maintain visual clarity.
+
+Black should be used sparingly to complement the original logo.
+
+Logo
+
+Use the original academy logo supplied by the website owner.
+
+Do not redraw, replace, distort, or generate a different logo.
+
+Maintain the original aspect ratio and visual identity.
+
+Typography
+
+Use elegant, readable typography.
+
+Recommended combinations:
+
+- English: Playfair Display or a similar elegant heading font, with Inter or another clean sans-serif body font.
+- Bengali: Hind Siliguri or Noto Sans Bengali.
+- Arabic: A suitable readable Arabic font.
+
+Make sure all three scripts display correctly.
+
+---
+
+5. PROJECT ASSET FOLDER STRUCTURE
+
+The owner is organizing the project assets in a main folder named:
+
+Al Muinul Quran Online Academy
+
+Expected asset categories:
+
+1. UI-UX Design
+2. Teachers
+3. Logo
+
+Additional materials may include:
+
+4. Website Content
+5. Reference Images
+
+Asset Handling Rules
+
+Before development:
+
+- Inspect all uploaded images and files.
+- Identify which image belongs to which website page.
+- Use the supplied homepage design as the primary homepage reference.
+- Use the supplied page designs as visual references for their corresponding pages.
+- Use the original academy logo.
+- Use actual teacher photographs and information supplied by the owner.
+- Maintain image quality and appropriate aspect ratios.
+- Optimize images for web performance.
+- Use meaningful image filenames and descriptive alt text.
+
+Do not assume that local computer folders are automatically accessible.
+
+If an asset is missing, ask the owner to upload it.
+
+Never fabricate teacher photographs, identities, qualifications, testimonials, or academy achievements.
+
+The supplied UI/UX images are design references. Reproduce their layout and design language, but do not copy any accidental inaccurate information visible inside generated mockups.
+
+---
+
+6. EXACT WEBSITE STRUCTURE
+
+Create exactly seven main website pages.
+
+Do not add extra main navigation pages.
+
+Page 1: Home
+
+Route:
+
+- /en/
+- /bn/
+
+Page 2: About Us
+
+Route:
+
+- /en/about
+- /bn/about
+
+Page 3: Our Courses
+
+Route:
+
+- /en/courses
+- /bn/courses
+
+Page 4: Our Teachers
+
+Route:
+
+- /en/teachers
+- /bn/teachers
+
+Page 5: Free Trial Class
+
+Route:
+
+- /en/free-trial
+- /bn/free-trial
+
+Page 6: Admission / Enrollment
+
+Route:
+
+- /en/admission
+- /bn/admission
+
+Page 7: Contact Us
+
+Route:
+
+- /en/contact
+- /bn/contact
+
+Additional legal documents may be available through the footer:
+
+- Privacy Policy
+- Terms & Conditions
+
+These are supporting legal documents, not additional main navigation pages.
+
+FAQ must be a section within the Admission / Enrollment page, not a separate main page.
+
+Contact Us must remain a separate page.
+
+---
+
+7. HOMEPAGE DESIGN REQUIREMENTS
+
+Follow the supplied Homepage UI/UX reference.
+
+Create the homepage using the following section order:
+
+Section 1: Navigation Bar
+
+Include:
+
+- Original academy logo.
+- Academy name.
+- Home.
+- About Us.
+- Our Courses.
+- Our Teachers.
+- Free Trial Class.
+- Admission.
+- Contact Us.
+- English / বাংলা language switcher.
+- Admission Now CTA.
+
+The navigation must work correctly.
+
+On mobile, use a clean, accessible hamburger navigation.
+
+Section 2: Hero Section
+
+Create a premium Islamic hero section.
+
+Use a beautiful, relevant Quran-learning visual.
+
+The image may include:
+
+- An open Quran on a traditional stand.
+- Elegant Islamic architectural details.
+- Soft natural lighting.
+- Tasteful Islamic geometric patterns.
+- Premium green and gold visual elements.
+
+Avoid using random people or fabricated teacher photographs.
+
+Suggested headline:
+
+"Learn the Quran. Illuminate Your Life."
+
+Suggested supporting text:
+
+"Begin your journey towards Quranic knowledge through personalized online Quran learning for children and adults."
+
+Primary CTA:
+Start Free Trial
+
+Secondary CTA:
+Explore Courses
+
+Include concise and accurate trust points:
+
+- One-to-One Live Classes
+- Bangla & English Learning
+- Google Meet Classes
+- Flexible Learning Arrangements
+
+Do not claim guaranteed learning outcomes.
+
+Section 3: Academy Introduction
+
+Introduce Al Muinul Quran Online Academy.
+
+Explain:
+
+- What the academy offers.
+- Its online learning approach.
+- Its focus on Quranic and Islamic education.
+- Its commitment to respectful and accessible learning.
+
+CTA:
+Learn More About Us
+
+Section 4: Our Courses
+
+Display exactly six approved courses.
+
+Use premium course cards with appropriate icons or visuals.
+
+Each card should contain:
+
+- Course title.
+- Short description.
+- Appropriate learning focus.
+- Explore Course CTA.
+
+Section 5: About Us Preview
+
+Present the academy's educational purpose, mission, and vision.
+
+Use only approved information.
+
+CTA:
+Discover Our Academy
+
+Section 6: Our Teachers Preview
+
+Display real teacher profiles.
+
+Use only photographs, names, qualifications, and information supplied by the owner.
+
+CTA:
+Meet Our Teachers
+
+Section 7: How It Works
+
+Explain the learning process:
+
+1. Choose Your Course.
+2. Submit Your Application.
+3. Get Academy Confirmation.
+4. Start Learning Through Google Meet.
+
+Do not imply that an application is automatically accepted.
+
+Section 8: Free Trial Promotion
+
+Promote the opportunity for new students to request one or two free trial classes.
+
+Clearly state:
+
+- Available to new students only.
+- Subject to academy approval.
+- The academy will contact the applicant to confirm arrangements.
+
+CTA:
+Apply for Free Trial
+
+Section 9: Student Testimonials
+
+Display testimonials only after genuine testimonials are provided and approved.
+
+Never generate fake student reviews, names, photographs, ratings, or success stories.
+
+If no genuine testimonials are available, hide the section or use a neutral educational information section instead.
+
+Section 10: FAQ Preview
+
+Show selected relevant questions.
+
+Link visitors to the FAQ section on the Admission page.
+
+Do not create a separate FAQ page.
+
+Section 11: Final Admission CTA
+
+Use a visually strong deep-green and gold section.
+
+Suggested headline:
+
+"Start Your Quran Learning Journey Today."
+
+CTA:
+Apply for Admission
+
+Section 12: Footer
+
+Include:
+
+- Academy logo.
+- Short academy introduction.
+- Main page links.
+- Six approved course links.
+- Contact information.
+- WhatsApp link.
+- Facebook page link.
+- Privacy Policy.
+- Terms & Conditions.
+- Language switcher.
+
+---
+
+8. ABOUT US PAGE
+
+Create a professional institutional introduction.
+
+Include:
+
+- Academy overview.
+- Educational purpose.
+- Mission.
+- Vision.
+- Teaching philosophy.
+- Online learning approach.
+- Student-centered learning.
+- Commitment to transparency and respectful education.
+
+Explain why students may choose the academy:
+
+- Personalized one-to-one learning.
+- Quranic education through live online classes.
+- Bangla and English language options.
+- Female teachers for female students, subject to actual availability.
+- Learning opportunities for children and adults.
+- Direct communication with the academy.
+
+Do not invent founding dates, awards, institutional history, or registration details.
+
+---
+
+9. OUR COURSES PAGE
+
+The academy currently offers exactly six courses.
+
+Do not add any unapproved course.
+
+Course 1: Noorani Qaida
+
+বাংলা: নূরানী কায়দা
+
+Focus on foundational Arabic letter recognition and beginner Quran learning.
+
+Course 2: Quran Reading
+
+বাংলা: কুরআন রিডিং
+
+Focus on developing Quran reading ability.
+
+Course 3: Quran with Tajweed
+
+বাংলা: কুরআন তাজবিদসহ
+
+Focus on Quran reading with Tajweed rules.
+
+Course 4: Basic Islamic Studies
+
+বাংলা: বেসিক ইসলামিক স্টাডিজ
+
+Focus on foundational Islamic knowledge.
+
+Course 5: Daily Dua & Salah
+
+বাংলা: দৈনন্দিন দোয়া ও নামাজ শিক্ষা
+
+Focus on daily duas and prayer learning.
+
+Course 6: Arabic Language
+
+বাংলা: আরবি ভাষা
+
+Focus on Arabic language learning.
+
+Each course must have:
+
+- Course title in both languages.
+- Clear course description.
+- Appropriate learning objectives.
+- Relevant visual.
+- Contact or enrollment CTA.
+
+Do not promise a fixed duration, certificate, or learning outcome unless the owner confirms it.
+
+---
+
+10. OUR TEACHERS PAGE
+
+This is an important trust-building page.
+
+Use the teacher images and information supplied by the academy.
+
+The page should support:
+
+- Male teachers.
+- Female teachers.
+- Hafiz / Hafiza qualifications where applicable.
+- Qari / Qaria qualifications where applicable.
+- Tajweed expertise.
+- Islamic educational backgrounds.
+- Relevant teaching experience.
+
+Each teacher profile may contain:
+
+- Actual name.
+- Actual photograph.
+- Confirmed qualifications.
+- Confirmed specialization.
+- Confirmed experience.
+
+Do not assign qualifications based on photographs or assumptions.
+
+Do not invent names, credentials, experience, gender, or teaching history.
+
+Use a premium, consistent teacher card design.
+
+---
+
+11. FREE TRIAL CLASS PAGE
+
+Explain the free trial process clearly.
+
+The academy may offer one or two free trial classes to new students.
+
+Important conditions:
+
+- New students only.
+- Trial requests are subject to academy approval.
+- Trial timing must be confirmed by the academy.
+- The student should submit accurate contact details.
+- The academy will contact the applicant.
+
+Include:
+
+- Introduction.
+- Trial benefits.
+- Application steps.
+- Eligibility information.
+- CTA to request a trial.
+
+Do not describe free trials as automatically approved or guaranteed.
+
+---
+
+12. ADMISSION / ENROLLMENT PAGE
+
+Create a professional admission information page.
+
+Include:
+
+- Introduction to admission.
+- Who can apply.
+- Available courses.
+- How to apply.
+- Enrollment steps.
+- Class arrangement information.
+- Admission-related FAQ.
+
+Admission Process
+
+1. Select a suitable course.
+2. Submit the application through Contact Us.
+3. Wait for academy communication.
+4. Confirm the course and class arrangements.
+5. Begin learning after confirmation.
+
+FAQ
+
+Include useful questions such as:
+
+- Who can join the academy?
+- Which courses are available?
+- Are classes one-to-one?
+- Which languages are supported?
+- How do online classes work?
+- Can female students request female teachers?
+- How does the free trial process work?
+- Can international students apply?
+
+All answers must reflect verified academy information.
+
+Do not create a separate FAQ page.
+
+---
+
+13. CONTACT US PAGE AND WORKING APPLICATION FORM
+
+The Contact Us page is the primary location for the application and contact form.
+
+This is a critical functional requirement.
+
+The form must not be frontend-only.
+
+Contact Information
+
+Phone / WhatsApp:
++880 1626-278303
+
+Email:
+almuinulquranacademy@gmail.com
+
+Location:
+Bangladesh
+
+Facebook:
+https://www.facebook.com/AlMoinulQuran?mibextid=ZbWKwL
+
+Contact Form Fields
+
+Include appropriate fields:
+
+- Student Name.
+- Age.
+- Country.
+- Gender.
+- Selected Course.
+- Preferred Language.
+- Preferred Class Time.
+- Timezone.
+- WhatsApp Number.
+- Application Type.
+- Additional Message.
+
+Application Type:
+
+- Free Trial Request.
+- Regular Admission Request.
+- General Inquiry.
+
+Form Functionality
+
+Implement:
+
+- Required field validation.
+- Valid email and phone validation where applicable.
+- Clear error messages.
+- Loading state.
+- Submission status.
+- Success confirmation only after actual backend success.
+- Error handling.
+- Spam protection.
+- Privacy consent.
+
+The form must actually submit information to a configured backend.
+
+Do not simulate a successful submission.
+
+Backend Options
+
+Support a suitable real backend such as:
+
+Option A:
+Google Apps Script connected to Google Sheets.
+
+Option B:
+Firebase.
+
+Keep the frontend and backend integration cleanly separated.
+
+Do not expose secret keys, private credentials, or sensitive configuration in public frontend code.
+
+The owner must be able to receive and review genuine student applications.
+
+Provide setup instructions for whichever backend is selected.
+
+WhatsApp Integration
+
+Use the official WhatsApp contact number:
+
++8801626278303
+
+Create a direct WhatsApp link:
+
+https://wa.me/8801626278303
+
+Use prefilled messages where appropriate.
+
+Make the WhatsApp contact option visible without obstructing the website.
+
+---
+
+14. BILINGUAL LANGUAGE SYSTEM
+
+The website must support:
+
+1. English.
+2. Bengali.
+
+Use the following URL structure:
+
+English:
+/en/
+
+Bengali:
+/bn/
+
+All seven pages must support both languages.
+
+Requirements:
+
+- Visible language switcher in the navbar.
+- Preserve the current page when changing languages.
+- Translate navigation.
+- Translate headings and descriptions.
+- Translate forms and validation messages.
+- Translate course information.
+- Translate FAQs.
+- Translate CTA buttons.
+- Translate footer information.
+- Correct Bengali typography and line wrapping.
+
+Do not mix Bengali and English unintentionally.
+
+Use a maintainable translation architecture, such as structured locale files.
+
+Avoid duplicating entire page components for each language.
+
+---
+
+15. TECHNOLOGY STACK
+
+Preferred stack:
+
+- React.
+- TypeScript.
+- Vite.
+- Modern CSS or Tailwind CSS.
+- React Router or an appropriate routing solution.
+- Reusable components.
+- Maintainable project architecture.
+
+Use clean, modular code.
+
+Suggested component structure:
+
+- Navbar.
+- Footer.
+- LanguageSwitcher.
+- HeroSection.
+- CourseCard.
+- TeacherCard.
+- TrialCTA.
+- AdmissionSteps.
+- FAQAccordion.
+- ContactForm.
+- WhatsAppButton.
+- SEOHead.
+
+Suggested project organization:
+
+src/
+components/
+pages/
+layouts/
+assets/
+translations/
+data/
+hooks/
+services/
+styles/
+utils/
+
+public/
+images/
+icons/
+fonts/
+
+Keep course and teacher data separate from presentation components.
+
+---
+
+16. RESPONSIVE UI/UX REQUIREMENTS
+
+The website must work beautifully on:
+
+- Mobile phones.
+- Tablets.
+- Laptops.
+- Desktop monitors.
+
+Mobile design is especially important.
+
+Requirements:
+
+- Responsive navigation.
+- Readable typography.
+- Proper spacing.
+- Touch-friendly buttons.
+- Responsive image sizing.
+- No horizontal overflow.
+- Well-structured mobile forms.
+- Accessible menus and accordions.
+- Consistent design across all pages.
+
+Follow the supplied UI/UX references rather than creating unrelated page layouts.
+
+Use subtle transitions and restrained animation.
+
+Respect reduced-motion accessibility preferences.
+
+---
+
+17. SEO REQUIREMENTS
+
+Implement technical and on-page SEO best practices.
+
+Technical SEO
+
+- Unique page titles.
+- Unique meta descriptions.
+- Canonical URLs using the final configured domain.
+- XML sitemap.
+- robots.txt.
+- Clean URL structure.
+- Correct heading hierarchy.
+- Descriptive image alt text.
+- Open Graph metadata.
+- Social sharing metadata.
+- Fast loading.
+- Mobile-friendly layouts.
+- Correct indexing instructions.
+- Appropriate internal linking.
+
+Content SEO
+
+Use natural, useful search-oriented language.
+
+Relevant keyword themes may include:
+
+- Online Quran Academy.
+- Online Quran Classes.
+- Learn Quran Online.
+- Quran with Tajweed Online.
+- Noorani Qaida Online.
+- Quran Classes for Kids.
+- Quran Classes for Adults.
+- Online Quran Learning in Bangla.
+- Online Quran Learning in English.
+
+Use keywords naturally.
+
+Do not stuff keywords.
+
+Create unique and helpful content for each page.
+
+Do not claim rankings or guaranteed search visibility.
+
+Structured Data
+
+Implement relevant valid Schema.org structured data where appropriate.
+
+Consider:
+
+- EducationalOrganization.
+- Organization.
+- WebSite.
+- WebPage.
+- Course.
+- BreadcrumbList.
+- FAQPage, only when the visible page content and applicable search guidelines support it.
+
+Use only verified details.
+
+Do not invent physical addresses, ratings, reviews, accreditation, or business hours.
+
+---
+
+18. AEO: ANSWER ENGINE OPTIMIZATION
+
+Prepare useful content that answer engines can understand.
+
+Requirements:
+
+- Clear question-based headings.
+- Concise, direct answers.
+- Helpful FAQ content.
+- Clear explanations of teaching methods.
+- Accurate course descriptions.
+- Consistent academy information.
+- Well-structured page content.
+- Appropriate semantic HTML.
+
+Make important information easy to understand for both users and answer engines.
+
+Avoid unsupported claims.
+
+---
+
+19. GEO: GENERATIVE ENGINE OPTIMIZATION
+
+Prepare the website so AI search and generative answer platforms can understand the academy accurately.
+
+Requirements:
+
+- Consistent academy identity across pages.
+- Clear institutional descriptions.
+- Accurate course information.
+- Structured teacher information.
+- Clear contact information.
+- Useful educational content.
+- Semantic HTML.
+- Appropriate structured data.
+- Descriptive internal links.
+- Consistent English and Bengali information.
+
+Make content genuinely useful and factually consistent.
+
+Do not create fake citations, artificial reviews, misleading claims, or spam content to manipulate AI systems.
+
+No website can guarantee that a particular AI platform will cite or recommend it.
+
+---
+
+20. PERFORMANCE AND ACCESSIBILITY
+
+Follow modern performance and accessibility practices.
+
+Requirements:
+
+- Optimize images.
+- Use modern image formats where possible.
+- Lazy-load below-the-fold images.
+- Minimize unnecessary JavaScript.
+- Avoid layout shifts.
+- Use semantic HTML.
+- Provide keyboard navigation.
+- Maintain visible focus indicators.
+- Use accessible form labels.
+- Maintain adequate color contrast.
+- Add meaningful alternative text.
+- Support screen readers.
+- Respect reduced motion.
+
+Aim for strong Google Lighthouse performance, accessibility, SEO, and best-practice scores.
+
+Do not sacrifice usability to achieve a numerical score.
+
+---
+
+21. SECURITY AND PRIVACY
+
+The website must handle personal application information responsibly.
+
+Requirements:
+
+- HTTPS deployment.
+- Secure backend configuration.
+- Server-side validation where supported.
+- Input sanitization.
+- Spam protection.
+- No public exposure of secret keys.
+- No unnecessary personal data collection.
+- Clear privacy policy.
+- Appropriate consent for collecting application details.
+- No public display of student application data.
+
+Do not place sensitive credentials inside GitHub repositories.
+
+Use environment variables and backend-side secrets where applicable.
+
+---
+
+22. GITHUB REPOSITORY AND WEBSITE PUBLISHING
+
+A major requirement is publishing the website through GitHub.
+
+Prepare the project for GitHub Pages deployment.
+
+GitHub Requirements
+
+- Create a clean Git-ready project.
+- Include a suitable .gitignore.
+- Include a README.md.
+- Include clear setup instructions.
+- Use a production build.
+- Configure deployment using GitHub Actions.
+- Make the repository structure understandable.
+- Ensure future updates can be published through GitHub.
+
+GitHub Pages Compatibility
+
+Important technical requirements:
+
+1. Configure Vite's base path correctly for the GitHub repository.
+2. Support direct navigation to website routes.
+3. Handle GitHub Pages 404 fallback or use another compatible routing strategy.
+4. Ensure assets load correctly after deployment.
+5. Test the production build before publishing.
+6. Ensure both English and Bengali routes work.
+7. Avoid localhost-only URLs in production.
+8. Configure canonical URLs after the final website domain is confirmed.
+
+Use a suitable GitHub Actions workflow to:
+
+- Install dependencies.
+- Build the project.
+- Upload the production artifact.
+- Deploy to GitHub Pages.
+
+Provide the owner with beginner-friendly instructions for:
+
+- Creating a GitHub account if needed.
+- Creating a repository.
+- Uploading or connecting the source code.
+- Enabling GitHub Pages.
+- Configuring deployment permissions.
+- Running deployment.
+- Checking the published website.
+- Updating the website later.
+
+Custom Domain
+
+Prepare the project for an optional custom domain.
+
+Do not invent a domain name.
+
+Explain DNS configuration when the owner provides a domain.
+
+Important Hosting Limitation
+
+GitHub Pages provides static hosting.
+
+It does not directly run a private backend server or database.
+
+Therefore, integrate the contact form with a suitable external backend such as Google Apps Script/Google Sheets or Firebase.
+
+Never pretend GitHub Pages itself stores or processes applications.
+
+---
+
+23. CONVERSION-FOCUSED CONTENT AND TRUST
+
+The website should explain why students and parents may choose Al Muinul Quran Online Academy.
+
+Emphasize verified benefits:
+
+Personalized Learning
+
+One-to-one live classes allow the teaching process to focus on an individual student's learning needs.
+
+Accessible Online Education
+
+Students can learn remotely through Google Meet.
+
+Language Options
+
+Classes are available in Bangla and English.
+
+Female Student Support
+
+Female students can be matched with female Quran teachers according to actual teacher availability.
+
+Children and Adults
+
+The academy welcomes students from different age groups.
+
+Clear Learning Options
+
+Students can explore the six currently approved courses.
+
+Free Trial Opportunity
+
+New students may request one or two trial classes, subject to academy approval.
+
+Direct Communication
+
+Students and parents can contact the academy through WhatsApp, email, or the website contact form.
+
+Honest Institutional Presentation
+
+Communicate the academy's commitment to honesty, transparency, and respectful education.
+
+Never invent:
+
+- Student enrollment numbers.
+- Success rates.
+- Years of experience.
+- Awards.
+- Accreditation.
+- Teacher credentials.
+- Student reviews.
+- Ratings.
+- Guaranteed results.
+
+Use genuine information only.
+
+---
+
+24. DEVELOPMENT WORKFLOW
+
+Follow the following development phases.
+
+Phase 1: Asset Inspection
+
+Inspect all supplied files.
+
+Identify:
+
+- Logo.
+- Homepage UI/UX.
+- Other six page designs.
+- Teacher photographs.
+- Teacher information.
+- Other brand references.
+
+Report missing or unclear assets.
+
+Do not start by generating random replacement assets.
+
+Phase 2: Project Planning
+
+Prepare:
+
+- Final sitemap.
+- Component architecture.
+- Folder structure.
+- Design system.
+- Translation architecture.
+- Backend integration plan.
+- GitHub deployment plan.
+
+Present the plan to the owner.
+
+Phase 3: Homepage Development
+
+Build the homepage according to its supplied UI/UX reference.
+
+Test the desktop and mobile layouts.
+
+Phase 4: Remaining Page Development
+
+Develop:
+
+- About Us.
+- Our Courses.
+- Our Teachers.
+- Free Trial Class.
+- Admission / Enrollment.
+- Contact Us.
+
+Maintain visual consistency.
+
+Phase 5: Language Implementation
+
+Implement complete English and Bengali translations.
+
+Test language switching across every page.
+
+Phase 6: Functional Integration
+
+Implement:
+
+- Navigation.
+- Contact form.
+- Backend connection.
+- WhatsApp integration.
+- CTA links.
+- FAQ accordions.
+- Form validation.
+
+Phase 7: SEO, AEO and GEO
+
+Implement the relevant technical, content, semantic, and structured-data requirements.
+
+Phase 8: Testing
+
+Test:
+
+- All seven pages.
+- All navigation links.
+- All language routes.
+- All CTA buttons.
+- Contact form submission.
+- Backend response.
+- WhatsApp links.
+- Responsive layouts.
+- Accessibility.
+- SEO metadata.
+- Production build.
+- GitHub Pages routing.
+
+Phase 9: Deployment
+
+Prepare the GitHub repository and GitHub Actions workflow.
+
+Guide the owner through publishing.
+
+Phase 10: Final Review
+
+Provide a final report explaining:
+
+- What has been completed.
+- What has been tested.
+- What backend services are connected.
+- What still requires owner configuration.
+- How to update and maintain the website.
+
+---
+
+25. STRICT DEVELOPMENT RULES
+
+These rules are mandatory.
+
+1. Do not add more than seven main website pages.
+2. Do not create a separate FAQ page.
+3. Keep Contact Us as an independent page.
+4. Keep the contact/application form on Contact Us.
+5. Do not add Hifz or other unapproved courses.
+6. Do not invent teacher information.
+7. Do not generate fake testimonials.
+8. Do not replace the official logo.
+9. Do not ignore supplied UI/UX references.
+10. Do not create fake form submission success.
+11. Do not expose private credentials.
+12. Do not claim a backend is connected unless it has actually been configured and tested.
+13. Do not use fabricated academy statistics.
+14. Do not use placeholder information as if it were real.
+15. Do not leave navigation buttons non-functional.
+16. Do not sacrifice mobile usability.
+17. Do not publish unfinished or broken pages.
+18. Ask the owner when essential information is missing.
+
+---
+
+26. COMMUNICATION AND WORKING STYLE
+
+The website owner prefers Bengali communication.
+
+Therefore:
+
+- Explain all development steps in simple Bengali.
+- Use English for code, filenames, and technical identifiers where appropriate.
+- Do not overwhelm the owner with too many instructions at once.
+- Work one phase at a time.
+- Explain what has been completed.
+- Explain what needs approval.
+- Ask only necessary questions.
+- Wait for approval at important milestones.
+
+The owner is learning to use Google AI Studio and GitHub.
+
+Provide beginner-friendly guidance.
+
+Do not assume advanced programming knowledge.
+
+---
+
+27. FIRST ACTION — DO NOT START CODING IMMEDIATELY
+
+Before writing the full application code:
+
+1. Inspect all available project assets.
+2. Review all supplied UI/UX reference images.
+3. Review the logo.
+4. Review teacher photographs and information.
+5. Confirm the seven-page website structure.
+6. Prepare the technical architecture.
+7. Explain the proposed GitHub Pages deployment approach.
+8. Identify any missing information.
+9. Present the implementation plan in Bengali.
+
+Wait for the owner's confirmation before beginning the complete development process.
+
+---
+
+FINAL PROJECT GOAL
+
+Build a beautiful, reliable, trustworthy, premium, bilingual, mobile-friendly, and internationally accessible website for Al Muinul Quran Online Academy.
+
+The website must accurately represent the academy, explain its educational offerings, present its real teachers, make communication easy, and support genuine student applications.
+
+The final product should be ready for a professional GitHub-based publishing workflow, with a properly configured backend for application handling.
+
+Brand Promise:
+
+"Learn the Quran. Illuminate Your Life."
+
+Academy:
+
+Al Muinul Quran Online Academy
+
+Primary Objective:
+
+Make it easy for students and parents to discover the academy, understand its learning opportunities, trust its educational approach, and contact the academy to begin their Quran learning journey.
+
+Build with care, accuracy, professionalism, and integrity.

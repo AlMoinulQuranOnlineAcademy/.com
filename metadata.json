@@ -1,0 +1,6 @@
+{
+  "name": "Al Muinul Quran Online Academy",
+  "description": "Learn the Quran. Illuminate Your Life. Official online Quran learning platform featuring one-to-one classes, qualified teachers, bilingual support, and complete course admissions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
