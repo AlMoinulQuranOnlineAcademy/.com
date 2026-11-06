@@ -29,7 +29,7 @@ export const ACADEMY_INFO = {
     en: '1-to-1 Live Interactive Classes',
     bn: 'ওয়ান-টু-ওয়ান লাইভ ইন্টারেক্টিভ ক্লাস',
   },
-  logo: '/assets/aistudio/logo_8fc48c97.jpg',
+  logo: '/assets/aistudio/logo_8fc48c97.webp',
 };
 
 export const COURSES_DATA: Course[] = [
@@ -287,7 +287,7 @@ export const TEACHERS_DATA: Teacher[] = [
       bn: 'সিনিয়র কুরআন ও তাজবিদ বিশেষজ্ঞ',
     },
     role: 'male',
-    photo: '/assets/aistudio/Maulana_Shibli_Moktabir_51096f43.jpg',
+    photo: '/assets/aistudio/Maulana_Shibli_Moktabir_51096f43.webp',
     qualifications: {
       en: ['Maulana (Islamic Scholar)', 'Daura-e-Hadith (Kamil)', 'Certified Qari'],
       bn: ['মাওলানা (ইসলামিক স্কলার)', 'দাওরায়ে হাদিস (কামিল)', 'সনদপ্রাপ্ত ক্বারী'],
@@ -316,7 +316,7 @@ export const TEACHERS_DATA: Teacher[] = [
       bn: 'সিনিয়র ইসলামিক স্কলার ও ফিকহ শিক্ষক',
     },
     role: 'male',
-    photo: '/assets/aistudio/Mufti_Abdulla_Al_mamun__d44c50e1.jpg',
+    photo: '/assets/aistudio/Mufti_Abdulla_Al_mamun__d44c50e1.webp',
     qualifications: {
       en: ['Mufti (Islamic Jurisprudence)', 'Daura-e-Hadith', 'Certified Tajweed & Qirat'],
       bn: ['মুফতি (ইসলামিক আইন ও ফিকহ)', 'দাওরায়ে হাদিস', 'সনদপ্রাপ্ত তাজবিদ ও কিরাত'],
@@ -345,7 +345,7 @@ export const TEACHERS_DATA: Teacher[] = [
       bn: 'কুরআন তিলাওয়াত ও মাখরাজ বিশেষজ্ঞ',
     },
     role: 'male',
-    photo: '/assets/aistudio/Maulana_Abu_Sayed_Habibi__ffb86f1b.jpg',
+    photo: '/assets/aistudio/Maulana_Abu_Sayed_Habibi__ffb86f1b.webp',
     qualifications: {
       en: ['Maulana (Islamic Scholar)', 'Qirat & Tajweed Specialist', 'Noorani Qaida Expert'],
       bn: ['মাওলানা (ইসলামিক স্কলার)', 'কিরাত ও তাজবিদ প্রশিক্ষক', 'নূরানী কায়দা বিশারদ'],
@@ -374,7 +374,7 @@ export const TEACHERS_DATA: Teacher[] = [
       bn: 'কুরআন ও আরবি ভাষা শিক্ষক',
     },
     role: 'male',
-    photo: '/assets/aistudio/Maolana_Atikul_Islam__830b6320.png',
+    photo: '/assets/aistudio/Maolana_Atikul_Islam__830b6320.webp',
     qualifications: {
       en: ['Maolana (Dars-e-Nizami)', 'Arabic Grammar Specialist', 'Tajweed Expert'],
       bn: ['মাওলানা (দরসে নেজামী)', 'আরবি ব্যাকরণ বিশারদ', 'তাজবিদ প্রশিক্ষক'],

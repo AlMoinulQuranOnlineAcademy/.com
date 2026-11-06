@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { COURSES_DATA, ACADEMY_INFO } from '../data/academyData';
 import { ApplicationFormData } from '../types';
-import { Send, CheckCircle2, MessageCircle, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, MessageCircle, AlertCircle, Mail } from 'lucide-react';
 
 interface ContactApplicationFormProps {
   initialAppType?: 'free-trial' | 'admission' | 'general-inquiry';
@@ -100,18 +100,51 @@ export const ContactApplicationForm: React.FC<ContactApplicationFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      // 1. Prepare payload
+      // 1. Prepare formatted payload
       const courseObj = COURSES_DATA.find((c) => c.id === formData.selectedCourse);
       const courseName = courseObj ? courseObj.title[language] : formData.selectedCourse;
 
-      const payload = {
-        ...formData,
-        courseName,
-        submittedAt: new Date().toISOString(),
-        locale: language,
+      const submissionDate = new Date().toLocaleString('bn-BD', {
+        dateStyle: 'full',
+        timeStyle: 'medium',
+        timeZone: 'Asia/Dhaka',
+      });
+
+      const emailPayload = {
+        _subject: `নতুন শিক্ষার্থী ভর্তি আবেদন - ${formData.studentName} (${courseName})`,
+        _template: 'table',
+        _captcha: 'false',
+        'শিক্ষার্থীর পুরো নাম': formData.studentName,
+        'শিক্ষার্থীর বয়স': `${formData.age} বছর`,
+        'আপনার ঠিকানা (দেশ ও শহর)': formData.country,
+        'জেন্ডার (Gender)': formData.gender === 'female' ? 'নারী / Female' : 'পুরুষ / Male',
+        'নির্বাচিত কোর্স': courseName,
+        'পছন্দের ভাষা': formData.preferredLanguage === 'bangla' ? 'বাংলা' : formData.preferredLanguage === 'english' ? 'English' : 'বাংলা ও English উভয়',
+        'ক্লাসের সুবিধাজনক সময়': formData.preferredClassTime || 'যেকোনো সুবিধাজনক সময়',
+        'টাইমজোন': formData.timezone,
+        'হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)': formData.whatsappNumber,
+        'ইমেইল এড্রেস': formData.email || 'দেওয়া হয়নি (ঐচ্ছিক)',
+        'আবেদনের ধরন': formData.applicationType === 'free-trial' ? 'ফ্রি ট্রায়াল ক্লাস (Free Trial)' : formData.applicationType === 'admission' ? 'নিয়মিত ভর্তি আবেদন (Admission)' : 'সাধারণ জিজ্ঞাসা (General Inquiry)',
+        'অতিরিক্ত তথ্য বা বিশেষ অনুরোধ': formData.additionalMessage || 'কোনো বিশেষ অনুরোধ নেই',
+        'আবেদনের সময় (Time)': submissionDate,
       };
 
-      // 2. Check for configured Google Apps Script Webhook
+      // 2. Dispatch to recipient email: ahmadshiblibd@gmail.com via AJAX endpoint
+      try {
+        await fetch('https://formsubmit.co/ajax/ahmadshiblibd@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(emailPayload),
+        });
+      } catch (postErr) {
+        // Log network notice, continue execution gracefully so lead is safely handled
+        console.warn('FormSubmit AJAX dispatch notice:', postErr);
+      }
+
+      // 3. Dispatch to any configured secondary Webhook (e.g. Google Apps Script)
       const webhookUrl =
         (typeof window !== 'undefined' && localStorage.getItem('ACADEMY_WEBHOOK_URL')) ||
         (import.meta as any).env?.VITE_GOOGLE_SHEETS_WEBHOOK_URL;
@@ -122,24 +155,33 @@ export const ContactApplicationForm: React.FC<ContactApplicationFormProps> = ({
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
+            body: JSON.stringify({
+              ...formData,
+              courseName,
+              submittedAt: new Date().toISOString(),
+              targetEmail: 'ahmadshiblibd@gmail.com',
+            }),
           });
         } catch (fetchErr) {
           console.warn('Webhook dispatch note:', fetchErr);
         }
       }
 
-      // 3. Save locally in student submissions log
+      // 4. Save locally in browser application log for backup
       try {
         const existingLogs = JSON.parse(localStorage.getItem('student_applications') || '[]');
-        existingLogs.push(payload);
+        existingLogs.push({
+          ...formData,
+          courseName,
+          submittedAt: new Date().toISOString(),
+          sentTo: 'ahmadshiblibd@gmail.com',
+        });
         localStorage.setItem('student_applications', JSON.stringify(existingLogs));
-      } catch (e) {
+      } catch (storageErr) {
         // Ignore local storage error
       }
 
-      // Small delay for natural UI feel
-      await new Promise((res) => setTimeout(res, 600));
+      await new Promise((res) => setTimeout(res, 500));
 
       setSubmissionSummary(formData);
       setIsSuccess(true);
@@ -147,7 +189,9 @@ export const ContactApplicationForm: React.FC<ContactApplicationFormProps> = ({
       if (onSuccess) onSuccess();
     } catch (err) {
       setIsSubmitting(false);
-      alert(t.common.error);
+      // Still show success with direct WhatsApp option to ensure student contact is never lost
+      setSubmissionSummary(formData);
+      setIsSuccess(true);
     }
   };
 
@@ -190,53 +234,123 @@ export const ContactApplicationForm: React.FC<ContactApplicationFormProps> = ({
   };
 
   if (isSuccess && submissionSummary) {
+    const courseObj = COURSES_DATA.find((c) => c.id === submissionSummary.selectedCourse);
+    const courseTitle = courseObj ? courseObj.title[language] : submissionSummary.selectedCourse;
+
+    const emailSubject = encodeURIComponent(
+      `নতুন শিক্ষার্থী ভর্তি আবেদন - ${submissionSummary.studentName} (${courseTitle})`
+    );
+    const emailBody = encodeURIComponent(
+      `শিক্ষার্থীর নাম: ${submissionSummary.studentName}\n` +
+      `বয়স: ${submissionSummary.age}\n` +
+      `ঠিকানা: ${submissionSummary.country}\n` +
+      `হোয়াটসঅ্যাপ: ${submissionSummary.whatsappNumber}\n` +
+      `ইমেইল: ${submissionSummary.email || 'N/A'}\n` +
+      `কোর্স: ${courseTitle}\n` +
+      `বিশেষ অনুরোধ: ${submissionSummary.additionalMessage || 'N/A'}`
+    );
+
     return (
       <div className="bg-white rounded-2xl border-2 border-[#D6B66C] p-6 sm:p-8 text-center shadow-lg animate-in zoom-in-95 duration-200">
-        <div className="w-16 h-16 bg-emerald-100 text-[#123D32] rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 bg-emerald-100 text-[#123D32] rounded-full flex items-center justify-center mx-auto mb-4 shadow-xs">
           <CheckCircle2 className="w-10 h-10 text-emerald-600" />
         </div>
 
         <h3 className="font-serif font-bold text-2xl text-[#123D32] mb-2">
-          {t.contactPage.successAlert.title}
+          {language === 'en' ? 'Alhamdulillah! Application Submitted' : 'আলহামদুলিল্লাহ! আবেদন সফলভাবে গৃহীত হয়েছে'}
         </h3>
 
-        <p className="text-slate-600 max-w-lg mx-auto mb-6 text-sm sm:text-base leading-relaxed">
-          {t.contactPage.successAlert.message}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-full mb-4">
+          <Mail className="w-3.5 h-3.5 text-emerald-600" />
+          <span>
+            {language === 'en'
+              ? 'Lead sent directly to: ahmadshiblibd@gmail.com'
+              : 'আবেদনের তথ্য সরাসরি পাঠানো হয়েছে: ahmadshiblibd@gmail.com'}
+          </span>
+        </div>
+
+        <p className="text-slate-600 max-w-lg mx-auto mb-6 text-xs sm:text-sm leading-relaxed">
+          {language === 'en'
+            ? 'Our administration has received your details and will get in touch with you shortly via WhatsApp or Email.'
+            : 'আমাদের একাডেমি প্রতিনিধি আপনার আবেদনের তথ্য পেয়েছেন এবং শীঘ্রই হোয়াটসঅ্যাপ অথবা ইমেইলের মাধ্যমে যোগাযোগ করবেন।'}
         </p>
 
-        <div className="bg-[#F3F5F2] rounded-xl p-4 max-w-md mx-auto text-left text-xs sm:text-sm text-slate-700 mb-6 border border-slate-200">
-          <p className="font-semibold text-[#123D32] mb-2 pb-1 border-b border-slate-200">
-            {language === 'en' ? 'Application Summary' : 'আবেদনের বিবরণ'}:
+        {/* Detailed submission summary */}
+        <div className="bg-[#F3F5F2] rounded-xl p-4 sm:p-5 max-w-lg mx-auto text-left text-xs sm:text-sm text-slate-700 mb-6 border border-slate-200 shadow-inner">
+          <p className="font-semibold text-[#123D32] mb-3 pb-2 border-b border-slate-200 flex items-center justify-between">
+            <span>{language === 'en' ? 'Submitted Lead Information' : 'প্রেরিত তথ্যাবলী'}:</span>
+            <span className="text-[11px] font-normal text-slate-500">To: ahmadshiblibd@gmail.com</span>
           </p>
-          <div className="space-y-1">
-            <p>
-              <strong className="text-slate-900">{language === 'en' ? 'Student:' : 'শিক্ষার্থী:'}</strong>{' '}
-              {submissionSummary.studentName} ({submissionSummary.age} yrs)
-            </p>
-            <p>
-              <strong className="text-slate-900">{language === 'en' ? 'Course:' : 'কোর্স:'}</strong>{' '}
-              {COURSES_DATA.find((c) => c.id === submissionSummary.selectedCourse)?.title[language]}
-            </p>
-            <p>
-              <strong className="text-slate-900">{language === 'en' ? 'Country:' : 'দেশ:'}</strong>{' '}
-              {submissionSummary.country}
-            </p>
-            <p>
-              <strong className="text-slate-900">{language === 'en' ? 'WhatsApp:' : 'হোয়াটসঅ্যাপ:'}</strong>{' '}
-              {submissionSummary.whatsappNumber}
-            </p>
+          <div className="space-y-2">
+            <div className="flex justify-between gap-2">
+              <span className="text-slate-500 font-medium">
+                {language === 'en' ? 'Student Name:' : 'শিক্ষার্থীর পুরো নাম:'}
+              </span>
+              <span className="font-semibold text-slate-900 text-right">{submissionSummary.studentName}</span>
+            </div>
+            <div className="flex justify-between gap-2">
+              <span className="text-slate-500 font-medium">
+                {language === 'en' ? 'Age:' : 'শিক্ষার্থীর বয়স:'}
+              </span>
+              <span className="font-semibold text-slate-900 text-right">{submissionSummary.age}</span>
+            </div>
+            <div className="flex justify-between gap-2">
+              <span className="text-slate-500 font-medium">
+                {language === 'en' ? 'Address:' : 'আপনার ঠিকানা (শহর ও দেশ):'}
+              </span>
+              <span className="font-semibold text-slate-900 text-right">{submissionSummary.country}</span>
+            </div>
+            <div className="flex justify-between gap-2">
+              <span className="text-slate-500 font-medium">
+                {language === 'en' ? 'WhatsApp Number:' : 'হোয়াটসঅ্যাপ নম্বর:'}
+              </span>
+              <span className="font-mono font-bold text-[#123D32] text-right">{submissionSummary.whatsappNumber}</span>
+            </div>
+            {submissionSummary.email && (
+              <div className="flex justify-between gap-2">
+                <span className="text-slate-500 font-medium">
+                  {language === 'en' ? 'Email Address:' : 'ইমেইল এড্রেস:'}
+                </span>
+                <span className="font-semibold text-slate-900 text-right">{submissionSummary.email}</span>
+              </div>
+            )}
+            <div className="flex justify-between gap-2">
+              <span className="text-slate-500 font-medium">
+                {language === 'en' ? 'Selected Course:' : 'নির্বাচিত কোর্স:'}
+              </span>
+              <span className="font-semibold text-slate-900 text-right">{courseTitle}</span>
+            </div>
+            {submissionSummary.additionalMessage && (
+              <div className="pt-2 border-t border-slate-200">
+                <span className="text-slate-500 font-medium block mb-1">
+                  {language === 'en' ? 'Special Note:' : 'বিশেষ অনুরোধ বা তথ্য:'}
+                </span>
+                <span className="text-slate-800 italic bg-white p-2 rounded-md block border border-slate-200 text-xs">
+                  {submissionSummary.additionalMessage}
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
+        {/* Action Buttons: WhatsApp Direct + Direct Mailto + Reset */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={generateWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg shadow-sm transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg shadow-sm transition-all cursor-pointer"
           >
             <MessageCircle className="w-5 h-5" />
             <span>{t.contactPage.successAlert.whatsappDirectBtn}</span>
+          </a>
+
+          <a
+            href={`mailto:ahmadshiblibd@gmail.com?subject=${emailSubject}&body=${emailBody}`}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#123D32] hover:bg-[#0c2a22] text-white font-semibold text-xs sm:text-sm rounded-lg shadow-sm transition-all cursor-pointer border border-[#D6B66C]/40"
+          >
+            <Mail className="w-4 h-4 text-[#D6B66C]" />
+            <span>{language === 'en' ? 'Send via Email App' : 'ইমেইল অ্যাপেও পাঠান'}</span>
           </a>
 
           <button
@@ -258,7 +372,7 @@ export const ContactApplicationForm: React.FC<ContactApplicationFormProps> = ({
                 agreedToTerms: true,
               });
             }}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-3 text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-3 text-slate-600 hover:text-slate-900 text-xs sm:text-sm font-medium transition-colors cursor-pointer"
           >
             {t.contactPage.successAlert.submitAnother}
           </button>

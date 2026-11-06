@@ -40,9 +40,9 @@ export const HomePage: React.FC = () => {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Headlines & CTAs (7 cols) */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Headlines & CTAs (order-2 on mobile so image is above, order-1 on desktop) */}
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-left order-2 lg:order-1">
               {/* Kicker tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#D6B66C]/40 text-xs font-semibold text-[#D6B66C]">
                 <Sparkles className="w-3.5 h-3.5 text-[#D6B66C]" />
@@ -55,15 +55,15 @@ export const HomePage: React.FC = () => {
               </h1>
 
               {/* Supporting Subtitle */}
-              <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
                 {t.hero.subtitle}
               </p>
 
-              {/* Primary & Secondary Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              {/* Primary & Secondary Action Buttons (full width on mobile for easy tap, inline on sm+) */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 sm:pt-2">
                 <button
                   onClick={() => navigateTo('free-trial', { appType: 'free-trial' })}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#D6B66C] hover:bg-amber-300 text-[#123D32] font-semibold text-sm rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#D6B66C] hover:bg-amber-300 text-[#123D32] font-semibold text-sm rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
                   <span>{t.hero.startFreeTrial}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -71,7 +71,7 @@ export const HomePage: React.FC = () => {
 
                 <button
                   onClick={() => navigateTo('courses')}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium text-sm rounded-lg border border-white/20 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium text-sm rounded-lg border border-white/20 transition-all cursor-pointer"
                 >
                   <span>{t.hero.exploreCourses}</span>
                   <ChevronRight className="w-4 h-4 text-[#D6B66C]" />
@@ -80,14 +80,14 @@ export const HomePage: React.FC = () => {
 
               {/* Bukhari Hadith Citation */}
               <div className="pt-4 border-t border-white/15">
-                <p className="font-serif italic text-sm text-[#D6B66C] leading-snug">
+                <p className="font-serif italic text-xs sm:text-sm text-[#D6B66C] leading-snug">
                   {t.hero.quote}
                 </p>
                 <p className="text-xs text-slate-300 mt-1">{t.hero.quoteSource}</p>
               </div>
 
               {/* 4 Trust Points */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3">
                 <div className="flex items-center gap-2 text-xs text-slate-200">
                   <CheckCircle className="w-4 h-4 text-[#D6B66C] shrink-0" />
                   <span>{t.hero.trustPoints.oneToOne}</span>
@@ -107,8 +107,8 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Visual Frame (5 cols) */}
-            <div className="lg:col-span-5 relative">
+            {/* Right Column: Visual Frame (order-1 on mobile so image is at top, order-2 on desktop) */}
+            <div className="lg:col-span-5 relative order-1 lg:order-2">
               <div className="relative mx-auto max-w-lg lg:max-w-none">
                 {/* Luminous Golden Ambient Halo */}
                 <div className="absolute -inset-2 sm:-inset-3 rounded-3xl bg-gradient-to-tr from-[#D6B66C]/40 via-amber-300/20 to-[#D6B66C]/50 blur-lg opacity-80 pointer-events-none" />
@@ -117,13 +117,21 @@ export const HomePage: React.FC = () => {
                 <div className="relative rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-b from-[#E6CA85] via-[#D6B66C] to-[#8C6D2B] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] group">
                   {/* Inner Container */}
                   <div className="relative rounded-[14px] sm:rounded-[22px] overflow-hidden bg-[#0c2a22]">
-                    {/* High-Resolution Live Teacher Photo */}
-                    <img
-                      src={getAssetUrl('assets/aistudio/file_00000000b2b881faa7f50487092dbcee_879f2f73.png')}
-                      alt={language === 'en' ? 'Al Muinul Quran Online Academy Live Class Instructor' : 'আল মুঈনুল কুরআন অনলাইন একাডেমি - লাইভ ক্লাস শিক্ষক'}
-                      className="w-full h-auto object-cover aspect-[16/10] sm:aspect-[16/9] transition-transform duration-700 group-hover:scale-102"
-                      loading="eager"
-                    />
+                    {/* High-Resolution Optimized Live Teacher Photo */}
+                    <picture>
+                      <source
+                        srcSet={getAssetUrl('assets/aistudio/hero_live_teacher.webp')}
+                        type="image/webp"
+                      />
+                      <img
+                        src={getAssetUrl('assets/aistudio/file_00000000b2b881faa7f50487092dbcee_879f2f73.png')}
+                        alt={language === 'en' ? 'Al Muinul Quran Online Academy Live Class Instructor' : 'আল মুঈনুল কুরআন অনলাইন একাডেমি - লাইভ ক্লাস শিক্ষক'}
+                        className="w-full h-auto object-cover aspect-[16/10] sm:aspect-[16/9] transition-transform duration-700 group-hover:scale-102"
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
+                      />
+                    </picture>
 
                     {/* Top Floating Badges */}
                     <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#D6B66C]/50 text-xs font-medium text-white shadow-lg">
@@ -206,9 +214,11 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md">
                 <img
-                  src={getAssetUrl('assets/images/student_online_learning_1793371433018.jpg')}
+                  src={getAssetUrl('assets/images/student_online_learning_1793371433018.webp')}
                   alt="Young Muslim student learning Quran attentively on Google Meet"
                   className="w-full h-72 sm:h-80 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
                   <span className="font-semibold text-[#123D32]">
@@ -376,6 +386,8 @@ export const HomePage: React.FC = () => {
                       src={getAssetUrl(teacher.photo)}
                       alt={teacher.name[language]}
                       className="w-full h-full object-contain object-top group-hover:scale-102 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
                     />
                     {/* Top corner title badge */}
                     <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-[#123D32] text-[#D6B66C] text-[11px] font-semibold rounded-full shadow-xs border border-[#D6B66C]/40">

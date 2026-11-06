@@ -69,7 +69,7 @@ export const CoursesPage: React.FC = () => {
           en: 'Comprehensive Quranic and Islamic education tailored for beginner, intermediate, and advanced learners. Taught one-to-one via Google Meet with certified instructors.',
           bn: 'নতুন শিক্ষার্থী থেকে শুরু করে শুদ্ধ তিলাওয়াত ও ইসলামিক জ্ঞানে সমৃদ্ধ হওয়ার জন্য সুপরিকল্পিত ৬টি বিশেষায়িত কোর্স। অভিজ্ঞ শিক্ষকদের তত্ত্বাবধানে ওয়ান-টু-ওয়ান লাইভ ক্লাস।',
         }}
-        heroImage="assets/images/courses_hero_img_1793378996394.jpg"
+        heroImage="assets/images/courses_hero_img_1793378996394.webp"
         heroImageAlt={{
           en: 'Illuminated Holy Quran on wooden rehal with calligraphy reed pen',
           bn: 'রেহালের উপর পবিত্র কুরআন শরীফ ও ক্যালিগ্রাফি উপকরণ',

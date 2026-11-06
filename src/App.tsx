@@ -11,13 +11,13 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 import { SEOHead } from './components/SEOHead';
 import { LegalModal } from './components/LegalModal';
 
-import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { CoursesPage } from './pages/CoursesPage';
-import { TeachersPage } from './pages/TeachersPage';
-import { FreeTrialPage } from './pages/FreeTrialPage';
-import { AdmissionPage } from './pages/AdmissionPage';
-import { ContactPage } from './pages/ContactPage';
+const HomePage = React.lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })));
+const AboutPage = React.lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
+const CoursesPage = React.lazy(() => import('./pages/CoursesPage').then((m) => ({ default: m.CoursesPage })));
+const TeachersPage = React.lazy(() => import('./pages/TeachersPage').then((m) => ({ default: m.TeachersPage })));
+const FreeTrialPage = React.lazy(() => import('./pages/FreeTrialPage').then((m) => ({ default: m.FreeTrialPage })));
+const AdmissionPage = React.lazy(() => import('./pages/AdmissionPage').then((m) => ({ default: m.AdmissionPage })));
+const ContactPage = React.lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
 
 const AppContent: React.FC = () => {
   const { currentRoute } = useLanguage();
@@ -47,7 +47,16 @@ const AppContent: React.FC = () => {
       <SEOHead />
       <Navbar />
       <main className="grow animate-in fade-in duration-150">
-        {renderCurrentPage()}
+        <React.Suspense
+          fallback={
+            <div className="min-h-[50vh] flex flex-col items-center justify-center py-20 text-center">
+              <div className="w-10 h-10 rounded-full border-3 border-[#123D32] border-t-[#D6B66C] animate-spin mb-3" />
+              <p className="text-xs text-slate-500 font-medium">লোড হচ্ছে...</p>
+            </div>
+          }
+        >
+          {renderCurrentPage()}
+        </React.Suspense>
       </main>
       <Footer />
       <WhatsAppButton />

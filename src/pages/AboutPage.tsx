@@ -43,7 +43,7 @@ export const AboutPage: React.FC = () => {
           en: 'Quranic Education for a Brighter Future. We are a global online Quran learning academy, dedicated to providing authentic, personalized and high-quality Quranic education for children and adults, regardless of location.',
           bn: 'কুরআন শিক্ষার মাধ্যমে সুন্দর ভবিষ্যতের প্রত্যয়। দেশ ও প্রবাসে বসবাসরত শিশু, কিশোর ও বয়স্কদের জন্য শুদ্ধ ও সহীহভাবে কুরআন শিক্ষার এক আন্তর্জাতিক অনলাইন প্ল্যাটফর্ম।',
         }}
-        heroImage="assets/images/about_hero_img_1793379380569.jpg"
+        heroImage="assets/images/about_hero_img_1793379380569.webp"
         heroImageAlt={{
           en: 'Magnificent Islamic Academy Library and Courtyard',
           bn: 'আল মুঈনুল কুরআন একাডেমি শিক্ষা ও অধ্যয়ন পরিবেশ',
@@ -110,9 +110,11 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-4 flex justify-center">
               <div className="w-full max-w-sm rounded-t-full rounded-b-2xl overflow-hidden border-2 border-[#D6B66C]/40 shadow-md">
                 <img
-                  src={getAssetUrl('assets/images/student_online_learning_1793371433018.jpg')}
+                  src={getAssetUrl('assets/images/student_online_learning_1793371433018.webp')}
                   alt="Student learning Quran online with teacher on laptop"
                   className="w-full h-80 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -274,9 +276,11 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-4 flex justify-center">
               <div className="w-full max-w-sm rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
                 <img
-                  src={getAssetUrl('assets/images/female_student_learning_1793371432961.jpg')}
+                  src={getAssetUrl('assets/images/female_student_learning_1793371432961.webp')}
                   alt="Female student studying Quran online"
                   className="w-full h-80 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

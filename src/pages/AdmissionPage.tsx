@@ -112,7 +112,7 @@ export const AdmissionPage: React.FC = () => {
           en: 'Begin your journey towards Quranic knowledge. Fill out the application form and we will contact you shortly via WhatsApp for the next steps.',
           bn: 'সহীহ কুরআন শিক্ষার বরকতময় যাত্রায় আপনাকে স্বাগতম। সাধারণ ফর্মটি পূরণ করুন, আমাদের প্রতিনিধি খুব দ্রুত হোয়াটসঅ্যাপে যোগাযোগ করে আপনার ভর্তি নিশ্চিত করবেন।',
         }}
-        heroImage="assets/images/admission_hero_img_1793379151588.jpg"
+        heroImage="assets/images/admission_hero_img_1793379151588.webp"
         heroImageAlt={{
           en: 'Islamic Academy graduation diploma scroll, amber tasbih and Holy Quran',
           bn: 'একাডেমি সনদ, তসবিহ ও উন্মুক্ত কুরআনুল কারীম',

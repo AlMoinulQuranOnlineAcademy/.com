@@ -41,7 +41,7 @@ export const ContactPage: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.fullName || !form.phoneNumber) {
       alert(
@@ -54,19 +54,40 @@ export const ContactPage: React.FC = () => {
 
     setIsSubmitting(true);
 
+    try {
+      await fetch('https://formsubmit.co/ajax/ahmadshiblibd@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `ওয়েবসাইট থেকে বার্তা - ${form.fullName} (${form.subject})`,
+          _template: 'table',
+          _captcha: 'false',
+          'নাম': form.fullName,
+          'ফোন / হোয়াটসঅ্যাপ নম্বর': form.phoneNumber,
+          'ইমেইল': form.email || 'N/A',
+          'বিষয়': form.subject,
+          'বার্তা': form.message,
+          'তারিখ ও সময়': new Date().toLocaleString('bn-BD', { timeZone: 'Asia/Dhaka' }),
+        }),
+      });
+    } catch (err) {
+      console.warn('Contact message dispatch note:', err);
+    }
+
     // Save locally
     try {
       const logs = JSON.parse(localStorage.getItem('contact_messages') || '[]');
-      logs.push({ ...form, date: new Date().toISOString() });
+      logs.push({ ...form, date: new Date().toISOString(), sentTo: 'ahmadshiblibd@gmail.com' });
       localStorage.setItem('contact_messages', JSON.stringify(logs));
     } catch (e) {
       // ignore
     }
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSent(true);
-    }, 500);
+    setIsSubmitting(false);
+    setIsSent(true);
   };
 
   const getWhatsAppMsgUrl = () => {
@@ -107,7 +128,7 @@ export const ContactPage: React.FC = () => {
           en: 'We’re here to help! Whether you have questions about our courses, need support, or want to start your Quran learning journey — feel free to reach out to us anytime.',
           bn: 'কোর্স সম্পর্কে বিস্তারিত জানতে, যেকোনো সহায়তায় অথবা আপনার সন্তান বা নিজের কুরআন শিক্ষার বরকতময় যাত্রা শুরু করতে নির্দ্বিধায় যোগাযোগ করুন।',
         }}
-        heroImage="assets/images/contact_hero_img_1793379305698.jpg"
+        heroImage="assets/images/contact_hero_img_1793379305698.webp"
         heroImageAlt={{
           en: 'Academy welcoming reception and consultation desk with Quran',
           bn: 'একাডেমির পরামর্শ ডেস্ক ও সহৃদয় অভ্যর্থনা',
@@ -409,9 +430,11 @@ export const ContactPage: React.FC = () => {
               {/* Photo */}
               <div className="rounded-2xl overflow-hidden border border-[#D6B66C]/30 shadow-md">
                 <img
-                  src={getAssetUrl('assets/images/quran_hero_visual_1793371432823.jpg')}
+                  src={getAssetUrl('assets/images/quran_hero_visual_1793371432823.webp')}
                   alt="Quran and laptop educational setup"
                   className="w-full h-44 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 

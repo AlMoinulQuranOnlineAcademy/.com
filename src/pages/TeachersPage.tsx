@@ -54,7 +54,7 @@ export const TeachersPage: React.FC = () => {
           en: 'Our dedicated and experienced teachers are committed to providing high-quality Quranic and Islamic education with personalized care and professional guidance.',
           bn: 'আমাদের সকল শিক্ষক-শিক্ষিকা অত্যন্ত যত্নশীল, অভিজ্ঞ এবং আন্তরিকতার সাথে ওয়ান-টু-ওয়ান ক্লাসে বিশুদ্ধভাবে কুরআন শিক্ষাদানে নিবেদিতপ্রাণ।',
         }}
-        heroImage="assets/images/teachers_hero_img_1793379074088.jpg"
+        heroImage="assets/images/teachers_hero_img_1793379074088.webp"
         heroImageAlt={{
           en: 'Classical Islamic study library with Sanad certificate and scholar',
           bn: 'সনদপ্রাপ্ত শিক্ষকমণ্ডলীর ঐতিহ্য ও সমৃদ্ধ লাইব্রেরি',
@@ -182,6 +182,8 @@ export const TeachersPage: React.FC = () => {
                       src={getAssetUrl(teacher.photo)}
                       alt={teacher.name[language]}
                       className="w-full h-full object-contain object-top group-hover:scale-102 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Top-Corner Title Badge */}

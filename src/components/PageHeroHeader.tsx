@@ -133,9 +133,10 @@ export const PageHeroHeader: React.FC<PageHeroHeaderProps> = ({
               {/* Islamic Arch Window */}
               <div className="relative rounded-t-full rounded-b-2xl overflow-hidden border-2 border-[#D6B66C] shadow-xl bg-black group">
                 <img
-                  src={getAssetUrl(heroImage || 'assets/images/courses_hero_img_1793378996394.jpg')}
+                  src={getAssetUrl(heroImage || 'assets/images/courses_hero_img_1793378996394.webp')}
                   alt={heroImageAlt ? heroImageAlt[language] : (language === 'en' ? 'Al Muinul Quran Academy' : 'আল মুঈনুল কুরআন একাডেমি')}
                   className="w-full h-72 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+                  decoding="async"
                 />
 
                 {/* Dark Green Gradient Plaque with Calligraphy and Citation */}

@@ -45,7 +45,7 @@ export const FreeTrialPage: React.FC = () => {
           en: 'Let your child or yourself experience the quality of our online Quran classes with 1–2 free trial sessions. Zero payment or upfront commitment required.',
           bn: 'ভর্তির পূর্বেই আল মুঈনুল কুরআন অনলাইন একাডেমির পাঠদান পদ্ধতি ও পরিবেশ পরীক্ষা করার জন্য ১-২টি ফ্রি ট্রায়াল ক্লাসে অংশ নিন। কোনো অগ্রিম ফি দিতে হবে না।',
         }}
-        heroImage="assets/images/freetrial_hero_img_1793379228480.jpg"
+        heroImage="assets/images/freetrial_hero_img_1793379228480.webp"
         heroImageAlt={{
           en: 'Online Quran live 1-to-1 learning session with headset, laptop and Quran',
           bn: 'অনলাইন কুরআন লাইভ ক্লাসের প্রস্তুতি ও সরঞ্জাম',
@@ -244,9 +244,11 @@ export const FreeTrialPage: React.FC = () => {
 
             <div className="rounded-2xl overflow-hidden border border-[#D6B66C]/30 shadow-md">
               <img
-                src={getAssetUrl('assets/images/student_online_learning_1793371433018.jpg')}
+                src={getAssetUrl('assets/images/student_online_learning_1793371433018.webp')}
                 alt="Student learning Quran in one-to-one online class"
                 className="w-full h-56 object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
