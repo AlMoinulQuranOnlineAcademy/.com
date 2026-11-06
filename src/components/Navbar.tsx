@@ -112,8 +112,8 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action Group: Language selector dropdown + Admission button */}
-          <div className="hidden sm:flex items-center gap-3 shrink-0">
+          {/* Desktop Right Action Group: Language selector + Admission button (only on lg: screens) */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             {/* Dual Language Box (ছোট ঘরের মধ্যে বাংলা ও English দুইটাই পরিষ্কারভাবে দৃশ্যমান) */}
             <div
               className="inline-flex items-center p-1 rounded-lg bg-slate-100 border border-slate-300 shadow-inner"

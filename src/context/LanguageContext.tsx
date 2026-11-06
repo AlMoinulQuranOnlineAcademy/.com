@@ -39,8 +39,17 @@ function parsePath(pathname: string): { lang: Language; route: RoutePath } {
   }
 
   const parts = clean.split('/').filter(Boolean);
-  
-  let lang: Language = 'en';
+
+  let savedLang: Language | null = null;
+  try {
+    const s = localStorage.getItem('almuinul_user_language');
+    if (s === 'en' || s === 'bn') savedLang = s;
+  } catch (e) {
+    // Ignore localStorage access issues
+  }
+
+  // Bengali ('bn') is the default language when first visiting the landing page
+  let lang: Language = savedLang || 'bn';
   let route: RoutePath = '';
 
   if (parts.length > 0) {
@@ -108,6 +117,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const setLanguage = (newLang: Language) => {
     setLanguageState(newLang);
+    try {
+      localStorage.setItem('almuinul_user_language', newLang);
+    } catch (e) {
+      // Ignore
+    }
     const prefix = getBasePrefix();
     const newPath = currentRoute ? `${prefix}/${newLang}/${currentRoute}` : `${prefix}/${newLang}/`;
     window.history.pushState({}, '', newPath);
